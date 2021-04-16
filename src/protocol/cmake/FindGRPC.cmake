@@ -1,0 +1,24 @@
+if(NOT DEFINED GRPC_GENERATE_CPP_APPEND_PATH)
+  set(GRPC_GENERATE_CPP_APPEND_PATH TRUE)
+endif()
+
+find_path(GRPC_INCLUDE_DIR grpc/grpc.h)
+
+find_library(GRPC_LIBRARY NAMES grpc)
+add_library(gRPC::grpc UNKNOWN IMPORTED)
+set_target_properties(gRPC::grpc PROPERTIES
+    INTERFACE_INCLUDE_DIRECTORIES ${GRPC_INCLUDE_DIR}
+    INTERFACE_LINK_LIBRARIES "-lpthread;-ldl"
+    IMPORTED_LOCATION ${GRPC_LIBRARY}
+)
+
+find_library(GRPC_GRPC++_LIBRARY NAMES grpc++)
+add_library(gRPC::grpc++ UNKNOWN IMPORTED)
+set_target_properties(gRPC::grpc++ PROPERTIES
+    INTERFACE_INCLUDE_DIRECTORIES "${GRPC_INCLUDE_DIR}"
+    INTERFACE_LINK_LIBRARIES gRPC::grpc
+    IMPORTED_LOCATION ${GRPC_GRPC++_LIBRARY}
+)
+
+find_program(PROTOBUF_PROTOC protoc)
+find_program(GRPC_CPP_PLUGIN grpc_cpp_plugin)
