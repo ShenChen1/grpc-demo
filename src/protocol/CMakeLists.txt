@@ -5,6 +5,7 @@ include(cmake/grpc.cmake)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/src/protocol/cmake")
 find_package(Protobuf REQUIRED)
 find_package(GRPC REQUIRED)
+set(GRPC_LINK_LIBRARIES gRPC::grpc++ protobuf::libprotobuf)
 
 grpc_generate_sources(GENERATED_GRPC_SRC
     "${CMAKE_CURRENT_SOURCE_DIR}/proto/rpc.proto")
