@@ -11,4 +11,4 @@ set(src-location "${CMAKE_SOURCE_DIR}/src")
 include_directories(${include-header-location} ${src-location})
 
 install(TARGETS demo-back-end
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})

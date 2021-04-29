@@ -7,19 +7,19 @@
 class DemoBackEnd : public CommonBackEnd
 {
 public:
-	DemoBackEnd();
-	~DemoBackEnd() override = default;
+    DemoBackEnd();
+    ~DemoBackEnd() override = default;
 
-	DemoBackEnd(const DemoBackEnd &) = delete;
-	DemoBackEnd(DemoBackEnd &&) = delete;
-	DemoBackEnd &operator=(const DemoBackEnd &) = delete;
-	DemoBackEnd &operator=(DemoBackEnd &&) = delete;
+    DemoBackEnd(const DemoBackEnd &) = delete;
+    DemoBackEnd(DemoBackEnd &&) = delete;
+    DemoBackEnd &operator=(const DemoBackEnd &) = delete;
+    DemoBackEnd &operator=(DemoBackEnd &&) = delete;
 
 public:
-	int run() override;
+    int run() override;
 
 private:
-	std::unique_ptr<GrpcDemoService> service;
+    std::unique_ptr<GrpcDemoService> service;
 };
 
 #endif // SRC_DEMO_BACK_END_API_H

@@ -18,6 +18,9 @@ public:
 
 private:
 	std::unique_ptr<rpc::Demo::Stub> stub;
+
+public:
+	int run(const char *request, char **response) override;
 };
 
 #endif // SRC_PROTOCOL_DEMO_CLIENT_H

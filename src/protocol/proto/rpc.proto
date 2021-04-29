@@ -2,14 +2,18 @@ syntax = "proto3";
 
 package rpc;
 
+message Status {
+    int32 status = 1;
+}
+
 message DemoRequest {
     string Request = 1;
 }
 
 message DemoResponse {
-    string Response = 2;
+    string Response = 1;
 }
 
 service Demo {
-    rpc run (DemoRequest) returns (DemoResponse);
+    rpc run (DemoRequest) returns (DemoResponse) {}
 }

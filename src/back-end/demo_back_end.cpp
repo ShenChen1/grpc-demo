@@ -2,7 +2,7 @@
 
 DemoBackEnd::DemoBackEnd()
 {
-    service = std::make_unique<GrpcDemoService>(nullptr);
+    service = std::make_unique<GrpcDemoService>();
 }
 
 int DemoBackEnd::run()
@@ -10,5 +10,6 @@ int DemoBackEnd::run()
     if (!service) {
         return -ENOMEM;
     }
+
     return service->run();
 }

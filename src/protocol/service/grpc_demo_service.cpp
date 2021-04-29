@@ -6,8 +6,7 @@
 #include "grpc_common.h"
 #include <grpc++/grpc++.h>
 
-GrpcDemoService::GrpcDemoService(std::unique_ptr<DemoApi> &&dispatcher_ptr)
-    : dispatcher(std::move(dispatcher_ptr))
+GrpcDemoService::GrpcDemoService()
 {}
 
 int GrpcDemoService::run()
