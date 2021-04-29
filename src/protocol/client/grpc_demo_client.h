@@ -7,20 +7,20 @@
 class GrpcDemoClient : public DemoApi
 {
 public:
-	GrpcDemoClient();
-	GrpcDemoClient(const GrpcDemoClient &) = delete;
-	GrpcDemoClient(GrpcDemoClient &&) = delete;
+    GrpcDemoClient();
+    GrpcDemoClient(const GrpcDemoClient &) = delete;
+    GrpcDemoClient(GrpcDemoClient &&) = delete;
 
-	GrpcDemoClient &operator=(const GrpcDemoClient &) = delete;
-	GrpcDemoClient &operator=(GrpcDemoClient &&) = delete;
+    GrpcDemoClient &operator=(const GrpcDemoClient &) = delete;
+    GrpcDemoClient &operator=(GrpcDemoClient &&) = delete;
 
-	~GrpcDemoClient();
+    ~GrpcDemoClient();
 
 private:
-	std::unique_ptr<rpc::Demo::Stub> stub;
+    std::unique_ptr<rpc::Demo::Stub> stub;
 
 public:
-	int run(const char *request, char **response) override;
+    int run(const char *request, char **response) override;
 };
 
 #endif // SRC_PROTOCOL_DEMO_CLIENT_H

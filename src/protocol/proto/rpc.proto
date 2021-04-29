@@ -2,10 +2,6 @@ syntax = "proto3";
 
 package rpc;
 
-message Status {
-    int32 status = 1;
-}
-
 message DemoRequest {
     string Request = 1;
 }

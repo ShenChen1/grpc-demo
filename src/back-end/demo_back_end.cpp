@@ -11,5 +11,5 @@ int DemoBackEnd::run()
         return -ENOMEM;
     }
 
-    return service->run();
+    return service->startup();
 }

@@ -18,7 +18,9 @@ public:
     GrpcDemoService &operator=(const GrpcDemoService &) = delete;
     GrpcDemoService &operator=(GrpcDemoService &&) = delete;
 
-    int run();
+    ~GrpcDemoService() = default;
+
+    int startup();
     void shutdown();
 
 private:

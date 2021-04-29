@@ -7,9 +7,10 @@
 #include <grpc++/grpc++.h>
 
 GrpcDemoService::GrpcDemoService()
-{}
+{
+}
 
-int GrpcDemoService::run()
+int GrpcDemoService::startup()
 {
     grpc::ServerBuilder builder;
 

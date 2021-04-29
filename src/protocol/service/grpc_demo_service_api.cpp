@@ -1,6 +1,6 @@
 #include "grpc_demo_service.h"
 
-grpc::Status run(
+grpc::Status GrpcDemoService::run(
     grpc::ServerContext *,
     const rpc::DemoRequest *request,
     rpc::DemoResponse *response)
