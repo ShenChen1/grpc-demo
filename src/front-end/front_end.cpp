@@ -18,7 +18,7 @@ auto s = std::make_shared<GrpcDemoClient>();
 
 extern "C" {
 
-int demp_run(const char *request, char **response)
+int demo_run(const char *request, char **response)
 {
     RETURN_INVALID_ARG_IF_NULL(request);
     RETURN_INVALID_ARG_IF_NULL(response);

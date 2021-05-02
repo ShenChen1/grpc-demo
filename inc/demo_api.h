@@ -16,7 +16,7 @@ extern "C" {
  * \param [in] request - message sent
  * \param [out] response - message received
  */
-int demp_run(const char *request, char **response);
+int demo_run(const char *request, char **response);
 
 #ifdef __cplusplus
 }

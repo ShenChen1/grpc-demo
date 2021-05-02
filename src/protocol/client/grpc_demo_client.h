@@ -14,7 +14,7 @@ public:
     GrpcDemoClient &operator=(const GrpcDemoClient &) = delete;
     GrpcDemoClient &operator=(GrpcDemoClient &&) = delete;
 
-    ~GrpcDemoClient();
+    ~GrpcDemoClient() = default;
 
 private:
     std::unique_ptr<rpc::Demo::Stub> stub;
