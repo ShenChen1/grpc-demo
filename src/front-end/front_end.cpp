@@ -24,4 +24,11 @@ int demo_run(const char *request, char **response)
     RETURN_INVALID_ARG_IF_NULL(response);
     return s->run(request, response);
 }
+
+int demo_run_async(const char *request, char **response)
+{
+    RETURN_INVALID_ARG_IF_NULL(request);
+    RETURN_INVALID_ARG_IF_NULL(response);
+    return s->run_async(request, response);
+}
 }

@@ -14,6 +14,7 @@ public:
 
 public:
 	virtual int run(const char *request, char **response) = 0;
+	virtual int run_async(const char *request, char **response) = 0;
 };
 
 #endif // SRC_PROTOCOL_GRPC_DEMO_API_H

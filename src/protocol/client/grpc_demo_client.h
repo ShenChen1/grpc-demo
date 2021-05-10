@@ -21,6 +21,7 @@ private:
 
 public:
     int run(const char *request, char **response) override;
+    int run_async(const char *request, char **response) override;
 };
 
 #endif // SRC_PROTOCOL_DEMO_CLIENT_H

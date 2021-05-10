@@ -16,3 +16,13 @@ TEST(DummyRun, CheckReturnedValue)
     EXPECT_STREQ("Hello Peter", response);
     free(response);
 }
+
+TEST(DummyRunAsync, CheckReturnedValue)
+{
+    const char *request = "Peter";
+    char *response = nullptr;
+    ASSERT_EQ(0, demo_run_async(request, &response));
+    ASSERT_NE(nullptr, response);
+    EXPECT_STREQ("Hello Peter", response);
+    free(response);
+}
