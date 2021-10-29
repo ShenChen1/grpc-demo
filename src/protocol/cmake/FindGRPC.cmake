@@ -20,5 +20,13 @@ set_target_properties(gRPC::grpc++ PROPERTIES
     IMPORTED_LOCATION ${GRPC_GRPC++_LIBRARY}
 )
 
+find_library(GRPC_GRPC++_REFLECTION_LIBRARY NAMES grpc++_reflection)
+add_library(gRPC::grpc++_reflection UNKNOWN IMPORTED)
+set_target_properties(gRPC::grpc++_reflection PROPERTIES
+    INTERFACE_INCLUDE_DIRECTORIES "${GRPC_INCLUDE_DIR}"
+    INTERFACE_LINK_LIBRARIES gRPC::grpc
+    IMPORTED_LOCATION ${GRPC_GRPC++_REFLECTION_LIBRARY}
+)
+
 find_program(PROTOBUF_PROTOC protoc)
 find_program(GRPC_CPP_PLUGIN grpc_cpp_plugin)

@@ -5,6 +5,8 @@
 
 #include "grpc_common.h"
 #include <grpc++/grpc++.h>
+#include <grpc++/ext/proto_server_reflection_plugin.h>
+#include <grpc++/health_check_service_interface.h>
 
 GrpcDemoService::GrpcDemoService()
 {
@@ -13,6 +15,9 @@ GrpcDemoService::GrpcDemoService()
 int GrpcDemoService::startup()
 {
     grpc::ServerBuilder builder;
+
+    grpc::EnableDefaultHealthCheckService(true);
+    grpc::reflection::InitProtoReflectionServerBuilderPlugin();
 
     builder.AddListeningPort(grpc_socket_address, grpc::InsecureServerCredentials());
     builder.RegisterService(this);

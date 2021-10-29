@@ -5,7 +5,7 @@ include(cmake/grpc.cmake)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/src/protocol/cmake")
 find_package(Protobuf REQUIRED)
 find_package(GRPC REQUIRED)
-set(GRPC_LINK_LIBRARIES gRPC::grpc++ protobuf::libprotobuf)
+set(GRPC_LINK_LIBRARIES gRPC::grpc++ gRPC::grpc++_reflection protobuf::libprotobuf)
 
 grpc_generate_sources(GENERATED_GRPC_SRC
     "${CMAKE_CURRENT_SOURCE_DIR}/proto/rpc.proto")
@@ -27,7 +27,8 @@ include_directories("${include-header-location}")
 
 add_library(demo-protocol-service SHARED "${GRPC_WRAPPER_SERVICE_SRC}")
 target_include_directories(demo-protocol-service PUBLIC "${GRPC_WRAPPER_SERVICE_DIR}" "${include-header-location}")
-target_link_libraries(demo-protocol-service demo-protocol-generated)
+target_link_libraries(demo-protocol-service
+    -Wl,--whole-archive demo-protocol-generated -Wl,--no-whole-archive)
 
 add_library(demo-protocol-client SHARED "${GRPC_WRAPPER_CLIENT_SRC}")
 target_include_directories(demo-protocol-client PUBLIC "${GRPC_WRAPPER_CLIENT_DIR}" "${include-header-location}")
